@@ -13,16 +13,20 @@ body {
 }
 
 #hamburger {
-  opacity: 0;
+  display: none;
 }
 
 .hamburger-button {
   cursor: pointer;
 }
 
+header label {
+  display: none;
+  z-index: 1000;
+} 
+
 label span {
   display: block;
-  opacity: 0;
   top: 30%;
   width: 33px;
   height: 4px;
@@ -31,17 +35,21 @@ label span {
   border: 1px solid black;
   background: #cdcdcd;
   border-radius: 3px;
+  z-index: 999;
 }
 
-header label {
-  z-index: 1;
+.hamburger-container {
+  position: absolute;
+  grid-column: 1/2;
+  z-index: 1000;
+
 }
 
 header {
   min-height: 70px;
   background-color: white;
-  display: flex;
-  justify-content: center;
+  display: grid;  
+  grid-template-columns: 1fr 2fr minmax(min-content 4fr);
   -webkit-box-shadow: 2px 3px 13px 0px rgba(0,0,0,0.75);
   -moz-box-shadow: 2px 3px 13px 0px rgba(0,0,0,0.75);
   box-shadow: 2px 3px 13px 0px rgba(0,0,0,0.75);
@@ -79,14 +87,19 @@ nav li {
 }
 
 nav {
+  grid-column: 3/4;
   display: flex;
   width: 80%;
   justify-content: flex-end;
 }
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 800px) {
   nav ul{
     display: none;
+  }
+
+  header label {
+    display: inline;
   }
 
   input:checked ~ nav {
@@ -113,10 +126,5 @@ nav {
     -moz-box-shadow: 8px 3px 19px 0px rgba(0,0,0,0.75);
     box-shadow: 8px 3px 19px 0px rgba(0,0,0,0.75);
   }
-
-  label span {
-    opacity: 1;
-  }
-
 
 }
