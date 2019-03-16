@@ -1,170 +1,122 @@
- body {
+body {
   font: 16px/1.2 Source Sans Pro, sans-serif;
   padding: 0;
   margin: 0;
   min-width: 320px;
-  background: rgb(235, 248, 214);
-
-} 
+  background: #fff4f0;
+}
 
 .container {
-  position: relative;
-  top: 60px;
   max-width: 1000px;
   margin: 0 auto;
   padding: 0 10px;
 }
 
-/* navigation styles */
+#hamburger {
+  opacity: 0;
+}
 
-header h2 {
-  color: rgb(53, 72, 175);
+.hamburger-button {
+  cursor: pointer;
+}
+
+label span {
+  display: block;
+  opacity: 0;
+  top: 30%;
+  width: 33px;
+  height: 4px;
+  margin-bottom: 5px;
+  position: relative;
+  border: 1px solid black;
+  background: #cdcdcd;
+  border-radius: 3px;
+}
+
+header label {
+  z-index: 1;
 }
 
 header {
- background-color: black;
- text-align: center;
- position: fixed;
- width: 100%;
- z-index: 10;
- margin-top: -20px;
- -webkit-box-shadow: 0px 10px 19px -8px rgba(0,0,0,0.75);
--moz-box-shadow: 0px 10px 19px -8px rgba(0,0,0,0.75);
-box-shadow: 0px 10px 19px -8px rgba(0,0,0,0.75);
+  min-height: 70px;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  -webkit-box-shadow: 2px 3px 13px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: 2px 3px 13px 0px rgba(0,0,0,0.75);
+  box-shadow: 2px 3px 13px 0px rgba(0,0,0,0.75);
 }
 
-nav {
-  position: absolute;
-  text-align: left;
-  top: 100%;
-  left: 0;
-  background-color: black;
-  width: 100%;
-  -webkit-box-shadow: 6px 6px 26px 5px rgba(0,0,0,0.75);
-  -moz-box-shadow: 6px 6px 26px 5px rgba(0,0,0,0.75);
-  box-shadow: 6px 6px 26px 5px rgba(0,0,0,0.75);
-}
-
-nav ul{
+nav ul {
   list-style: none;
-  padding: 0;
-  margin: 0;
+  display: flex;
 }
 
-.menu-item {
-  margin-bottom: 1em;
-  margin-left: 1em;
+nav li {
+  display: inline;
+  font-size: 1.2em;
+  padding: 5px;
 }
 
 nav a {
-  color: rgb(233, 252, 252);
-  text-decoration: none;
-  font-size: 1.5rem;
-  opacity: 0;
-  transition: opacity 100ms ease-in-out;
+  color: rgb(158, 151, 151);
 }
 
 nav a:hover {
+  color: rgb(250, 200, 200);
   cursor: pointer;
-  color: grey;
-} 
-
-nav {
-  width: 12%;
-  min-width: 150px;
-  min-height: 1000px;
-  transform: scale(1,0);
-  transform-origin: top;
-  transition: transform 400ms ease-in-out;
 }
 
-.nav-toggle {
-  display: none;
+li img {
+  width: 20px;
+  height: 20px;
+  margin: 5px;
 }
 
-.nav-toggle:checked ~ nav {
-  transform: scale(1)
-}
-
-.nav-toggle:checked ~ nav a {
-  opacity: 1;
-  transition: opacity 250ms ease-in-out 250ms
-}
-
-.nav-toggle:checked ~ html, body {
-  margin: 0; height: 100%; overflow: hidden
-}
-
-.nav-toggle-label {
-  position: absolute;
-  left: 0;
-  top: 0;
-  margin-left: 1em;
-  height: 100%;
+nav li {
   display: flex;
   align-items: center;
 }
 
-.nav-toggle-label span,
-.nav-toggle-label span::before,
-.nav-toggle-label span::after {
-  display: block;
-  background: white;
-  height: 3px;
-  width: 2em;
-  border-radius: 2px;
-  position: relative;
+nav {
+  display: flex;
+  width: 80%;
+  justify-content: flex-end;
 }
 
-.nav-toggle-label span::before,
-.nav-toggle-label span::after {
-  content: '';
-  position: absolute;
-}
-
-.nav-toggle-label span::before {
-  bottom: 7px;
-}
-
-.nav-toggle-label span::after {
-  top: 7px;
-}
-
-@media screen and (min-width: 768px) {
-  .nav-toggle-label {
+@media screen and (max-width: 700px) {
+  nav ul{
     display: none;
   }
-  
-  header {
-    display: grid;
-    grid-template-columns: 1fr auto minmax(600px, 3fr) 1fr
+
+  input:checked ~ nav {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
   }
 
-  header h2 {
-    grid-column: 2/3;
-  }
-
-  nav {
-    grid-column: 3/4;
-    all: unset;
+  input:checked ~ nav ul {
     display: flex;
-    justify-content: flex-end;
-    align-items: center;
+    flex-direction: column;
+    position: absolute;
+    padding-top: 40px;
+    top: -20px;
+    left: 0;
+    width: 30%;
+    height: 100%;
+    z-index: 10;
+    background-color: white;
+    -webkit-box-shadow: 8px 3px 19px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 8px 3px 19px 0px rgba(0,0,0,0.75);
+    box-shadow: 8px 3px 19px 0px rgba(0,0,0,0.75);
   }
 
-  nav a {
+  label span {
     opacity: 1;
   }
 
-  .menu-item {
-    margin-bottom: 0;
-    margin-left: 2em;
-  }
 
-  nav ul {
-    display: flex;
-    justify-content: flex-end;
-  }
 }
-
-
