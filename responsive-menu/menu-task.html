@@ -2,26 +2,36 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width; initial-scale=1; maximum-scale=1">
     <title>Burger menu</title>
+    <link style="text/css" rel="stylesheet" href="style.css"/>
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
-
-    <style>
-        body {
-            font: 16px/1.2 Source Sans Pro, sans-serif;
-            padding: 0;
-            margin: 0;
-            min-width: 320px;
-            background: #fff4f0;
-        }
-
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 0 10px;
-        }
-    </style>
 </head>
 <body>
+    <div class="nav-background"></div>
+    <input type="checkbox" id="hamburger"></input>    
+    <div class="hamburger-container">
+        <label for="hamburger" class="hamburger-button">
+            <span></span>
+            <span></span>
+            <span></span>
+        </label>
+    </div>
+    
+    <nav>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
+            <li>
+                <a href="#">Sign in</a>
+                <img src="user-icon.svg" alt="Sign in icon"/>
+            </li>
+        </ul>
+    </nav>
+
+
 <article class="container">
     <h1>Hamburger button</h1>
     <small>From Wikipedia, the free encyclopedia</small>
